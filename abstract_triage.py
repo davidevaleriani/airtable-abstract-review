@@ -45,6 +45,7 @@ class AbstractEvaluation(object):
               <p align="right">Record ID: %s</p>
               <h3>%s</h3>
               <p class="lead">%s</p>
+              <h5 class="text-right mb-3">%s</h5>
               <input type="hidden" name="recid" value="%s">
               <div class="row">
               <div class="col-sm"><button class="btn btn-primary btn-block" type="submit" name="action" value="Yes">Yes</button></div>
@@ -58,7 +59,9 @@ class AbstractEvaluation(object):
           <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
           <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
           </body>
-        </html>""" % (perc, perc, perc, current_rater, records[selected]['id'][-6:], records[selected]['fields']['title'], records[selected]['fields']['abstract'], records[selected]['id'])
+        </html>""" % (perc, perc, perc, current_rater, records[selected]['id'][-6:],
+                      records[selected]['fields']['title'], records[selected]['fields']['abstract'],
+                      records[selected]['fields']['theme'], records[selected]['id'])
 
     @cherrypy.expose
     def rate(self, action, recid, rater, comment):
